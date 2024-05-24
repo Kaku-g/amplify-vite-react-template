@@ -38,6 +38,7 @@ function App() {
             </a>
           </div>
           <FileUploader />
+          <h2>{user?.username}</h2>
           <button onClick={signOut}>Sign Out</button>
         </main>
       )}
