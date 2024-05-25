@@ -32,6 +32,8 @@ function App() {
       }
     };
     response.items.forEach((item: any) => add(item.path, filesystem, item));
+    setFilesystem(filesystem);
+    if (filesystem) console.log("filesystem", filesystem);
     return filesystem;
   }
 
@@ -43,9 +45,9 @@ function App() {
         });
         if (result) {
           setData(result);
-          setFilesystem(processStorageList(result));
-          console.log(filesystem);
-          console.log(result);
+          processStorageList(result);
+          // console.log(filesystem);
+          console.log("result", result);
         }
       } catch (e) {
         console.log(e);
