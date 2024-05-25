@@ -44,6 +44,7 @@ function App() {
         if (result) {
           setData(result);
           setFilesystem(processStorageList(result));
+          console.log(filesystem);
           console.log(result);
         }
       } catch (e) {
@@ -61,10 +62,10 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <main>
-          {filesystem &&
+          {/* {filesystem &&
             filesystem.map((file: any) => {
               <h2>{file}</h2>;
-            })}
+            })} */}
 
           {/* <h1>My todos</h1>
           <button onClick={createTodo}>+ new</button>
