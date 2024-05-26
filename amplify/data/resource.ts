@@ -20,7 +20,7 @@ const schema = a.schema({
       accessedIndex: a.float(),
       isCompressed: a.boolean(),
     })
-    .authorization((allow) => [allow.publicApiKey()]),
+    .authorization((allow) => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

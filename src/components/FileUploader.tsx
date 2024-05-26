@@ -8,21 +8,23 @@ export const FileUploader = () => {
 
   const afterUpload = async (key: any) => {
     try {
-      const res = client.models.Gallery.create({
-        name: key.split("/").pop(),
-        path: key,
-        accessedIndex: 0,
-        isCompressed: false,
-      });
+      const res = client.models.Gallery.create(
+        {
+          name: key.split("/").pop(),
+          path: key,
+          accessedIndex: 0,
+          isCompressed: false,
+        },
+        {
+          authMode: "userPool",
+        }
+      );
       console.log(res);
 
       console.log("done uploading");
     } catch (e) {
       console.log(e);
     }
-    //create if image is uploaded
-
-    // client.models.Todo.create({ content: window.prompt("Todo content") });
   };
   return (
     <StorageManager
@@ -32,6 +34,7 @@ export const FileUploader = () => {
       isResumable
       onUploadSuccess={({ key }) => afterUpload(key)}
       onUploadStart={() => console.log("uploading")}
+      maxFileSize={10000000}
     />
   );
 };
