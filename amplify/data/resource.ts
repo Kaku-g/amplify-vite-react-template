@@ -12,6 +12,15 @@ const schema = a.schema({
       content: a.string(),
     })
     .authorization((allow) => [allow.publicApiKey()]),
+
+  Gallery: a
+    .model({
+      name: a.string(),
+      path: a.string(),
+      accessedIndex: a.float(),
+      isCompressed: a.boolean(),
+    })
+    .authorization((allow) => [allow.publicApiKey()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
